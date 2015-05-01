@@ -1,135 +1,143 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>One-Time Pad</title>
+  <title>One-Time Pad</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="/static/css/jumbotron.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../static/css/jumbotron.css" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">One-Time Pad</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-        </div><!--/.navbar-collapse -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">One-Time Pad</a>
       </div>
-    </nav>
+      <div id="navbar" class="navbar-collapse collapse">
+      </div><!--/.navbar-collapse -->
+    </div>
+  </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>One-Time Pad!</h1>
-        <p>A free app for you and your allies to exchange secret battle plans.</p>
-        <p><a class="btn btn-primary btn-lg" href="http://en.wikipedia.org/wiki/One-time_pad" role="button">Learn more &raquo;</a></p>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>One-Time Pad!</h1>
+      <p>A free app for you and your allies to exchange secret battle plans.</p>
+      <p><a class="btn btn-primary btn-lg" href="http://en.wikipedia.org/wiki/One-time_pad" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+
+    <div class="alert alert-warning">This <a href="http://en.wikipedia.org/wiki/One-time_pad">one-time pad</a> was built using javascript so that all encryption/decryption is done locally (as opposed to data transferring to and from a server).</div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label for="comment">Character Set:</label>
+          <textarea id="textarea0" class="form-control" rows="2" id="comment"></textarea>
+        </div>
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      
+    <div class="row">
 
-        <div class="row">
-        <div class="col-md-8 alert alert-info" role="alert">Heads Up! This app uses all <a href="http://www.asciitable.com/">ASCII characters</a> so some ciphertext text may appear blank but it is not.  There are just hidden ASCII characters in the text-area.</div>
-        </div>
-
-        <div class="row">
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="comment">Plaintext/Ciphertext:</label>
-            <textarea id="textarea1" class="form-control" rows="5" id="comment", placeholder="some text"></textarea>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="comment">Key:</label>
-            <textarea id="textarea2" class="form-control" rows="5" id="comment", placeholder="Dr. Jensen Rules"></textarea>
-          </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="comment">Plaintext/Ciphertext:</label>
+          <textarea id="textarea1" class="form-control" rows="5" id="comment"></textarea>
         </div>
       </div>
 
-      <div clas="row">
-        <div class="col-md-12" style="padding-left:0px; padding-bottom:15px">
-          <button id="crypt_btn" type="button" class="btn btn-primary btn-lg">Encrypt/Decrypt</button>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="comment">Key:</label>
+          <textarea id="textarea2" class="form-control" rows="5" id="comment"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div clas="row">
+      <div class="col-md-12" style="padding-left:0px; padding-bottom:15px">
+        <button id="encrypt_btn" type="button" class="crypt btn btn-primary btn-lg">Encrypt</button>
+        <button id="decrypt_btn" type="button" class="crypt btn btn-primary btn-lg">Decrypt</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="comment">Ciphertext/Plaintext:</label>
+          <textarea id="textarea3" class="form-control" rows="5" id="comment"></textarea>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="comment">Ciphertext/Plaintext:</label>
-            <textarea id="textarea3" class="form-control" rows="5" id="comment"></textarea>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-group">
-            <label for="comment">Unused Key:</label>
-            <textarea id="textarea4" class="form-control" rows="5" id="comment"></textarea>
-          </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="comment">Unused Key:</label>
+          <textarea id="textarea4" class="form-control" rows="5" id="comment"></textarea>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <h3>HOW TO USE IT</h3>
+    <div class="row">
+      <h3>HOW TO USE IT</h3>
 
-        <p>
-          <ol>
-            <h5>Key Exchange</h5>
-            <li>Generate a random key. You must do this yourself. The key should be at least as long as the message(s) you plan on sending.  The longer the better.</li>
-            <li>In person, exchange the key with your ally (or allies).</li>
-            <br>
+      <p>
+        <ol>
+          <h5>Character Set</h5>
+          <li>Insert a set of unique characters in the 'character set' textbox.</li>
+          <div class="alert alert-info">Note: This app is case sensative.</div>
 
-            <h5>Encryption</h5>
-            <li>Type a message (plaintext) that you want to encrypt in the first text-area.</li>
-            <li>Insert your random key in the second text-area.</li>
-            <li>Click the encrypt/decrypt button. The encrypted text will appear in the third text-area.</li>
-            <li>If your message was shorter than your key, some of your key will be unsused. Save the unused portion of your key to encrypt/decrypt subsequent messages.</li>
-            <br>
+          <h5>Key Exchange</h5>
+          <li>Generate a random key (using the characters in your character set). You must do this yourself. The key should be at least as long as the message(s) you plan on sending.  The longer the better.</li>
+          <li>In person, exchange the key with your ally (or allies).</li>
+          <br>
 
-            <h5>Message Transfer</h5>
-            <li>Send the encypted message to your ally over any channel (e.g. email).</li>
-            <br>
+          <h5>Encryption</h5>
+          <li>Type a message (using the characters in your character set) that you want to encrypt in the 'plaintext/ciphertex' text-area.</li>
+          <li>Insert your random key in the 'key' text-area.</li>
+          <li>Click the encrypt button. The encrypted text will appear in the 'ciphertext/plaintext' text-area.</li>
+          <li>If your message was shorter than your key, some of your key will be unsused. Save the unused portion of your key to encrypt/decrypt subsequent messages.</li>
+          <br>
 
-            <h5>Decryption</h5>
-            <li>Insert an encrypted message into the first text-area.</li>
-            <li>Insert your random key in the second text-area.</li>
-            <li>Click the encrypt/decrypt button.  The decrypted text will appear in the third text-area.</li>
-            <li>If your message was shorter than your key, some of your key will be unsused. Save the unused portion of your key to encrypt/decrypt subsequent messages.</li>
+          <h5>Message Transfer</h5>
+          <li>Send the encypted message to your ally over any channel (e.g. email).</li>
+          <br>
 
-          </ol>
-        </p>
+          <h5>Decryption</h5>
+          <li>Insert an encrypted message into the 'plaintext/ciphertex' text-area.</li>
+          <li>Insert your random key in the 'key' text-area.</li>
+          <li>Click the decrypt button.  The decrypted text will appear in the 'ciphertext/plaintext' text-area.</li>
+          <li>If your message was shorter than your key, some of your key will be unsused. Save the unused portion of your key to encrypt/decrypt subsequent messages.</li>
 
-        <h3>HOW IT WORKS</h3>
-        <p>This <a href="http://en.wikipedia.org/wiki/One-time_pad">one-time pad</a> was built using javascript so that all encryption/decryption is done locally (as opposed to data transferring to and from a server).</p>
-      </div>
+        </ol>
+      </p>
+    </div>
 
-      <hr>
+    <hr>
 
-      <footer>
-        <p>&copy; Gorman 2015</p>
-      </footer>
-    </div> <!-- /container -->
+    <footer>
+      <p>&copy; Gorman 2015</p>
+    </footer>
+  </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -140,35 +148,78 @@
 
     <script type="text/javascript">
 
+      // When the page loads insert some initial values into the text areas
       $(document).ready(function() {
+        $("#textarea0").val('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .,$!*/()');
         $("#textarea1").val('Attack at dawn!');
         $("#textarea2").val('Truly random secret key (at least as big as the message) here.');
       });
 
-      $( "#crypt_btn" ).click(function() {
+
+      // When a button with the class 'crypt' is clicked, execute the encryption/decryption method
+      $( ".crypt" ).click(function() {
+
+        // Initialize some variables
+        var charset = $("#textarea0").val();
         var input = $("#textarea1").val();
         var key = $("#textarea2").val();
         var output = '';
         var mynum = 0;
         var mychar='';
 
+        // Validate the character set
+        if (charset.length == 0){
+          alert("You need to provide a character set!");
+          return;
+        } else if (charset.length == 1){
+          alert("Your character set is too short!")
+          return;
+        };
+
+        // Validate the key
         if(input.length > key.length){
           alert("Whoa there. Your key needs to be at least as many characters as your message.");
-        } else{
-
-          for (i=0; i < input.length; i++) {
-            mynum = input[i].charCodeAt(0) ^ key[i].charCodeAt(0);
-            mychar = String.fromCharCode(mynum);
-            output = output + mychar;
-          };
-
-          var unused_key = key.substr(input.length);
-          $("#textarea3").val(output);
-          $("#textarea4").val(unused_key);
-
+          return;
         };
+
+        // Build an associative array from the character set
+        var charsetdict = {};
+        for (i=0; i < charset.length; i++) {
+          if(charset.charAt(i) in charsetdict){
+            alert("Whoa there. Your character set contains a duplicate value: " + charset.charAt(i));
+            return;
+          } else{
+            charsetdict[charset.charAt(i)] = i;
+          }
+        }
+
+        // Loop through the elements of the cipher/plain text and build the plain/cipher text
+        for (i=0; i < input.length; i++) {
+          inputchar = input.charAt(i);
+          keychar = key.charAt(i);
+
+          if(!(inputchar in charsetdict)){
+            alert("Hold up... your input contains the character " + inputchar + " which isn't in the character set.")
+            return;
+          } else if(!(keychar in charsetdict)){
+            alert("Hold up... your key contains the character " + keychar + " which isn't in the character set.")
+            return;
+          } else{
+
+            if(event.target.id == "encrypt_btn"){ // the encrypt button was clicked
+              lookupindex = (charsetdict[inputchar] + charsetdict[keychar]) % charset.length;
+            } else{ // the decrypt button was clicked
+              lookupindex = (charsetdict[inputchar] - charsetdict[keychar] + charset.length) % charset.length;
+            }
+            output = output + charset.charAt(lookupindex);
+          }
+        };
+
+        var unused_key = key.substr(input.length);
+        $("#textarea3").val(output);
+        $("#textarea4").val(unused_key);
       });
 
     </script>
   </body>
-</html>
+  </html>

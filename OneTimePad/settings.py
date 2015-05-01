@@ -99,9 +99,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = 'staticfiles'
-#Added by me
+if(BASE_DIR=="/Users/Ben/Projects/OneTimePad"):
+    STATIC_URL = '/static/'
+    STATIC_ROOT = 'staticfiles'
+else:
+    STATIC_URL = 'http://onetimepad.ben519.webfactional.com/static/'
+    STATIC_ROOT = '/home/ben519/webapps/static_app/'
+    
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static'),
+    '/home/ben519/webapps/static_app',
 )
